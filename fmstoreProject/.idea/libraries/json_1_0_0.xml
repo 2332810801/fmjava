@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="json-1.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/web_shop/src/main/webapp/plugins/umedit/lib/json-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web_shop/src/main/webapp/plugins/umedit/lib/ueditor-1.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
