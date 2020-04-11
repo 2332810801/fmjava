@@ -63,6 +63,19 @@ new Vue({
                 })
             }
         },
+        uploadFile : function(){
+            //图片上传
+            var foormData= new FormData();//创建form表单
+            foormData.append("file",file.files[0])//获取名称为file的内容
+            const instance=axios.create({//打开form凭证
+                withCredentials:true
+            });
+            instance.post("/upload/uploadFile.do",foormData).then(function(response){
+
+            }).catch(function(reason) {
+
+            })
+        },
     },
     watch:{
         typeId:function (newValue,oldValue) {
