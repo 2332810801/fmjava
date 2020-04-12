@@ -1,0 +1,5 @@
+com\fmjava\core\service\ItemCatServiceImpl.class
+com\fmjava\core\service\BrandServiceImpl.class
+com\fmjava\core\service\SpecServiceImpl.class
+com\fmjava\core\service\TemplateServiceImpl.class
+com\fmjava\core\service\SellerServiceImpl.class

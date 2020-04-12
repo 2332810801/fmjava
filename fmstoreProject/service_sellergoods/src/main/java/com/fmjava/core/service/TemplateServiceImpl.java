@@ -1,8 +1,13 @@
 package com.fmjava.core.service;
+import java.util.*;
 
 import com.alibaba.dubbo.config.annotation.Service;
+import com.alibaba.fastjson.JSON;
+import com.fmjava.core.dao.specification.SpecificationOptionDao;
 import com.fmjava.core.dao.template.TypeTemplateDao;
 import com.fmjava.core.pojo.entity.PageResult;
+import com.fmjava.core.pojo.specification.SpecificationOption;
+import com.fmjava.core.pojo.specification.SpecificationOptionQuery;
 import com.fmjava.core.pojo.template.TypeTemplate;
 import com.fmjava.core.pojo.template.TypeTemplateQuery;
 import com.github.pagehelper.Page;
@@ -10,14 +15,14 @@ import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
-
 @Service //阿里的service
 @Transactional //事务
 public class TemplateServiceImpl implements TemplateService {
     @Autowired
     private TypeTemplateDao templateDao;//注入TypeTemplateDao
 
+    @Autowired
+    private SpecificationOptionDao specificationOptionDao;//规格选项
     /**
      *条件分页查询
      *
@@ -89,6 +94,37 @@ public class TemplateServiceImpl implements TemplateService {
     @Override
     public TypeTemplate findOne(Long id) {
         return templateDao.selectByPrimaryKey(id);
+    }
+
+    /**
+     * 根据模板id查询模板
+     * @param id
+     * @return
+     */
+    @Override
+    public List<Map> findBySpecWithID(Long id) {
+        //1. 根据模板id查询模板
+        TypeTemplate typeTemplate = templateDao.selectByPrimaryKey(id);
+        //2.取出规格
+        String specIds = typeTemplate.getSpecIds();
+        //3.把specIds转成集合
+        List<Map> mapList= JSON.parseArray(specIds,Map.class);
+       List<Map> maps=mapList;
+        //4.遍历每一个规格 取出规格选项
+        for (Map map : maps) {
+            //获取规格id
+            Object specIDObj = map.get("id");
+            Long specID = Long.parseLong(String.valueOf(specIDObj));//把规格id转成Long类型
+            SpecificationOptionQuery query = new SpecificationOptionQuery();
+            SpecificationOptionQuery.Criteria criteria = query.createCriteria();
+            criteria.andSpecIdEqualTo(specID);//根据规格id查询
+            List<SpecificationOption> specificationOptions = specificationOptionDao.selectByExample(query);
+            map.put("specificationOptions",specificationOptions);
+
+        }
+        System.out.println(maps);
+        return maps;
+
     }
 
 }

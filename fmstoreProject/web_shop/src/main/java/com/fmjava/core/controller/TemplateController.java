@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+import java.util.Map;
+
 @RestController
 @RequestMapping("/temp")
 public class TemplateController {
@@ -18,5 +21,13 @@ public class TemplateController {
     @RequestMapping("/findOne")
     public TypeTemplate findOne(Long id) {
         return templateService.findOne(id);
+    }
+
+    //根据id查询模板
+    @RequestMapping("/findBySpecWithID")
+    public List<Map> findBySpecWithID (Long id){
+        List<Map> res=templateService.findBySpecWithID(id);
+        System.out.println(res);
+        return res;
     }
 }

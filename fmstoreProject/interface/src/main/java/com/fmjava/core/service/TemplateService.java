@@ -3,6 +3,10 @@ package com.fmjava.core.service;
 import com.fmjava.core.pojo.entity.PageResult;
 import com.fmjava.core.pojo.template.TypeTemplate;
 
+import java.util.List;
+import java.util.Map;
+
+
 public interface TemplateService {
     /**
      *
@@ -44,4 +48,11 @@ public interface TemplateService {
      * @return
      */
     TypeTemplate findOne(Long id);
+
+    /**
+     * 根据模板id查询模板
+     * @param id
+     * @return
+     */
+    List<Map> findBySpecWithID(Long id);
 }

@@ -88,7 +88,6 @@
           <element id="library" level="project" name="Maven: commons-codec:commons-codec:1.10" />
         </element>
       </element>
-      <element id="library" level="project" name="json-1.0.0" />
       <element id="javaee-facet-resources" facet="web_shop/web/Web" />
       <element id="javaee-facet-resources" facet="service_sellergoods/web/Web" />
       <element id="javaee-facet-resources" facet="web_manager/web/Web" />

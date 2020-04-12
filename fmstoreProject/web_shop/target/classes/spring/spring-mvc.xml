@@ -12,6 +12,8 @@
     <context:component-scan base-package="com.fmjava"/>
 
     <context:property-placeholder location="classpath:config/application.properties" />
+
+
     <!-- 注解驱动 -->
     <mvc:annotation-driven>
         <!-- 转换器 -->
@@ -33,7 +35,7 @@
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="defaultEncoding" value="UTF-8"></property>
         <!-- 设定文件上传的最大值5MB，5*1024*1024 -->
-        <property name="maxUploadSize" value="5242880"></property>
+        <property name="maxUploadSize" value="52428800"></property>
     </bean>
 
     <!-- 给当前服务起个名 -->

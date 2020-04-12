@@ -1,0 +1,15 @@
+com\fmjava\core\dao\seller\SellerDao.class
+com\fmjava\core\dao\good\GoodsDescDao.class
+com\fmjava\core\dao\good\GoodsDao.class
+com\fmjava\core\dao\template\TypeTemplateDao.class
+com\fmjava\core\dao\specification\SpecificationOptionDao.class
+com\fmjava\core\dao\good\BrandDao.class
+com\fmjava\core\dao\item\ItemCatDao.class
+com\fmjava\core\dao\order\OrderDao.class
+com\fmjava\core\dao\item\ItemDao.class
+com\fmjava\core\dao\ad\ContentCategoryDao.class
+com\fmjava\core\dao\ad\ContentDao.class
+com\fmjava\core\dao\specification\SpecificationDao.class
+com\fmjava\core\dao\user\UserDao.class
+com\fmjava\core\dao\log\PayLogDao.class
+com\fmjava\core\dao\order\OrderItemDao.class

@@ -1,14 +1,14 @@
 package com.fmjava.core.utils;
 
-/**
- * @author joker_dj
- * @create 2020-04-12日 3:52
- */
-
-
 import org.apache.commons.io.FilenameUtils;
 import org.csource.common.NameValuePair;
 import org.csource.fastdfs.*;
+import org.csource.fastdfs.ClientGlobal;
+
+/**
+ * @author joker_dj
+ * @create 2020-04-12日 1:33
+ */
 
 public class FastDFSClient {
 
@@ -19,6 +19,7 @@ public class FastDFSClient {
 
     public FastDFSClient(String conf) throws Exception {
         if (conf.contains("classpath:")) {
+
             conf = conf.replace("classpath:", this.getClass().getResource("/").getPath());
         }
         ClientGlobal.init(conf);
